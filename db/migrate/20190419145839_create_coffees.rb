@@ -5,7 +5,7 @@ class CreateCoffees < ActiveRecord::Migration[5.2]
       t.text :description
       t.string :process
       t.string :grind
-      t.string :origin
+      t.integer :origin_id
 
       t.timestamps
     end
