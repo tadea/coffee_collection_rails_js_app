@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2019_04_20_144451) do
     t.text "description"
     t.string "process"
     t.string "grind"
-    t.string "origin"
+    t.integer "origin_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
