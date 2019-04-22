@@ -1,0 +1,19 @@
+<<h1>New Coffee</h1>
+
+<%= form_for(@coffee) do |f| %>
+
+<%= f.label :name %>
+<%= f.text_field :name %>
+<br>
+<%= f.label :description %>
+<%= f.text_area :description %>
+<br>
+<%= f.label :process %>
+<%= f.text_field :process %>
+<br>
+<%= f.label :grind %>
+<%= f.text_field :grind %>
+<br>
+<%= f.submit "Create Coffee" %>
+
+<% end %>
