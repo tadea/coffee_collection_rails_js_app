@@ -1,7 +1,7 @@
 class CoffeesController < ApplicationController
 
   def index
-    @coffee = Coffee.all
+    #@coffee = Coffee.all
   end
 
   def new
@@ -9,11 +9,10 @@ class CoffeesController < ApplicationController
   end
 
   def create
-
-    @coffee = Coffee.new(coffee_params)
-
+    @coffee = current_user.coffees.build(coffee_params)
       if @coffee.save
-      redirect_to coffees_path(@coffee)
+        #session[:user] = @user.id
+      redirect_to coffee_path(@coffee)
     else
       render :new
     end
