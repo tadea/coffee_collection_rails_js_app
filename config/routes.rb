@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
 
   root 'sessions#home'
-
-  delete '/logout' => 'sessions#destroy'
-
+  get '/signup' => 'users#new'
+    get '/login' => 'sessions#new'
+    post '/login' => 'sessions#create'
+    delete '/logout' => 'sessions#destroy'
+    
   resources :users, only: [:new, :create, :show] do
-    resources :coffees, only: [:index]
+    resources :coffees, only: [:show]
   end
 
   resources :coffees do
