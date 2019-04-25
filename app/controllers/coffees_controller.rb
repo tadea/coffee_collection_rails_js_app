@@ -5,6 +5,9 @@ class CoffeesController < ApplicationController
     @coffees = Coffee.all.order("created_at DESC")
   end
 
+  def show
+  end
+
   def new
     @coffee = Coffee.new
   end
@@ -19,9 +22,20 @@ class CoffeesController < ApplicationController
     end
   end
 
-  def show
+
+  def edit
   end
 
+  def update
+    if @coffee.update(coffee_params)
+      redirect_to coffee_path(@coffee)
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+  end
 
   private
 
