@@ -1,1 +1,7 @@
-<<h1>I just created a coffee</h1>
+<h1>Coffee Collection</h1>
+
+    <% @coffees.each do |coffee| %>
+      <p><%= link_to coffee.name, coffee_path(coffee) %></p>
+      <% end %>
+
+      <%= link_to "Add Coffee", new_coffee_path %>
