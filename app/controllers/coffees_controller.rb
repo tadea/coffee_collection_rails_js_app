@@ -35,6 +35,8 @@ class CoffeesController < ApplicationController
   end
 
   def destroy
+    @coffee.destroy
+    redirect_to coffees_path
   end
 
   private

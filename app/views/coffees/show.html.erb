@@ -5,3 +5,6 @@
 <p><%= @coffee.process %></p>
 <p><%= @coffee.grind %></p>
 <p><%= @coffee.origin_id %></p>
+
+<%= link_to "Edit", edit_coffee_path %>
+<%= link_to "Delete", coffee_path(@coffee), method: :delete, data: {confirm: "Are you sure?"} %>
