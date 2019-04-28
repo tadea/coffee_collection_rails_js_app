@@ -13,7 +13,7 @@ class CoffeesController < ApplicationController
   end
 
   def create
-    @coffee = current_user.coffees.build(coffee_params)
+    @coffee = Coffee.new(coffee_params)
       if @coffee.save
         #session[:user] = @user.id
       redirect_to coffee_path(@coffee)
@@ -42,7 +42,7 @@ class CoffeesController < ApplicationController
   private
 
   def coffee_params
-    params.require(:coffee).permit(:name, :description, :process, :grind, :origin_id)
+    params.require(:coffee).permit(:name, :description, :process, :grind, :origin)
   end
 
   def find_coffee

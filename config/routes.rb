@@ -5,13 +5,17 @@ Rails.application.routes.draw do
     get '/login' => 'sessions#new'
     post '/login' => 'sessions#create'
     delete '/logout' => 'sessions#destroy'
-    
-  resources :users, only: [:new, :create, :show] do
-    resources :coffees, only: [:show]
+
+  resources :users do
+    resources :coffees, only: [:index]
   end
 
   resources :coffees do
-    resources :reviews, only: [:create]
+    resources :reviews
+  end
+
+  resources :reviews do
+    resources :coffee
   end
 
   resources :sessions, only: [:new, :create, :destroy]

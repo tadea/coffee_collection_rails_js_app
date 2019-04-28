@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_20_144451) do
+ActiveRecord::Schema.define(version: 2019_04_28_175331) do
 
   create_table "coffees", force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.string "process"
     t.string "grind"
-    t.integer "origin_id"
+    t.string "origin"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

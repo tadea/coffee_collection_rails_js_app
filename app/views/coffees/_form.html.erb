@@ -1,0 +1,20 @@
+<%= form_for(@coffee) do |f| %>
+
+<%= f.label :name %>
+<%= f.text_field :name %>
+<br>
+<%= f.label :description %>
+<%= f.text_area :description %>
+<br>
+<%= f.label :process %>
+<%= f.text_field :process %>
+<br>
+<%= f.label :grind %>
+<%= f.select :grind, [['French Press'], ['Esspreso'], ['Pour Over'], ['Turkish Coffee']] %>
+<br>
+<%= f.label :origin %>
+<%= f.text_field :origin %>
+
+<%= f.submit "Submit" %>
+
+<% end %>
