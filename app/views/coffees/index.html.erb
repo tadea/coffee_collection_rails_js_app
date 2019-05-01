@@ -1,25 +1,6 @@
-<h1>Coffee Collection</h1>
+<h4><%= params[:grind] %></h4>
 
-<h3>French Press</h3>
-    <% @coffees.french_press.each do |coffee| %>
-      <p><%= link_to coffee.name, coffee_path(coffee) %></p>
+
+       <% @coffees.each do |coffee| %>
+      <h3><%= link_to coffee.name, coffee_path(coffee) %></h3>
       <% end %>
-
-  <h3>Esspreso</h3>
-          <% @coffees.esspreso.each do |coffee| %>
-            <p><%= link_to coffee.name, coffee_path(coffee) %></p>
-            <% end %>
-
-<h3>Pour Over</h3>
-        <% @coffees.pour_over.each do |coffee| %>
-          <p><%= link_to coffee.name, coffee_path(coffee) %></p>
-            <% end %>
-
-<h3>Turkish Coffee</h3>
-        <% @coffees.turkish_coffee.each do |coffee| %>
-        <p><%= link_to coffee.name, coffee_path(coffee) %></p>
-          <% end %>
-
-
-
-      <%= link_to "Add Coffee", new_coffee_path %>
