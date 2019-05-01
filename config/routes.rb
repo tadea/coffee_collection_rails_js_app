@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
 
   root 'sessions#home'
-  get '/signup' => 'users#new'
-    get '/login' => 'sessions#new'
-    post '/login' => 'sessions#create'
+  get '/signup', to: 'users#new'
+  post '/signup', to: 'users#create'
+
+    get '/login', to: 'sessions#new'
+    post '/login', to: 'sessions#create'
+
     delete '/logout' => 'sessions#destroy'
 
   resources :users do
@@ -18,7 +21,7 @@ Rails.application.routes.draw do
     resources :coffee
   end
 
-  resources :sessions, only: [:new, :create, :destroy]
+  #resources :sessions, only: [:new, :create, :destroy]
 
 
 
