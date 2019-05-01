@@ -1,6 +1,8 @@
 <h4><%= params[:grind] %></h4>
-
-
-       <% @coffees.each do |coffee| %>
-      <h3><%= link_to coffee.name, coffee_path(coffee) %></h3>
-      <% end %>
+  <% if @coffees.count == 0 %>
+    <h1> There is no coffees for this grind. </h1>
+    <% else %>
+      <% @coffees.each do |coffee| %>
+        <h3><%= link_to coffee.name, coffee_path(coffee) %></h3>
+    <% end %>
+  <% end %>
