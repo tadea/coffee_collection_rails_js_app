@@ -2,7 +2,12 @@ class CoffeesController < ApplicationController
   before_action :find_coffee, only: [:show, :edit, :update, :destroy]
 
   def index
+    if params[:grind].blank?
     @coffees = Coffee.all.order("created_at DESC")
+  else
+    @grind_id = Grind.find_by(name: params[:grind]).id
+    @coffees = Coffee.where(:grind_id => @grind_id).order("created_at DESC")
+  end
   end
 
   def show
@@ -10,10 +15,14 @@ class CoffeesController < ApplicationController
 
   def new
     @coffee = Coffee.new
+
   end
 
   def create
     @coffee = Coffee.new(coffee_params)
+
+    @coffee.user = current_user
+
       if @coffee.save
         #session[:user] = @user.id
       redirect_to coffee_path(@coffee)
@@ -42,7 +51,7 @@ class CoffeesController < ApplicationController
   private
 
   def coffee_params
-    params.require(:coffee).permit(:name, :description, :process, :grind, :origin)
+    params.require(:coffee).permit(:name, :description, :process, :grind_id, :origin)
   end
 
   def find_coffee
