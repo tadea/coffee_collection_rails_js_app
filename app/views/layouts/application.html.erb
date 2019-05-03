@@ -40,16 +40,27 @@
           </div>
         </nav>
 
+
         <div class="wrapper">
               <% if flash[:message] %>
                 <p style="color: blue; font-size: 16px;"><%= flash[:message] %></p>
               <% end %>
               <% if flash[:error] %>
-                <p style="color: red; font-size: 16px;"><%= flash[:error] %></p>
+                <p style="color: red; font-size: 1px;"><%= flash[:error] %></p>
               <% end %>
 
 
+
+
     <%= yield %>
+
+    <footer class="footer mt-5">
+        <div class="container">
+            <% if current_user.present? %>
+            <p class='text-center'>Logged as:<%= current_user.email %></p>
+            <% end%>
+      </div>
+    </footer>
 
   </body>
 </html>
