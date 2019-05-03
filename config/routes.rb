@@ -10,16 +10,13 @@ Rails.application.routes.draw do
     delete '/logout' => 'sessions#destroy'
 
   resources :users do
-    resources :coffees, only: [:index]
+    resources :coffees
   end
 
   resources :coffees do
-    resources :reviews
+    resources :reviews,  :except => [:index]
   end
 
-  resources :reviews do
-    resources :coffee
-  end
 
   #resources :sessions, only: [:new, :create, :destroy]
 

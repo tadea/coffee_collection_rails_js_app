@@ -1,4 +1,5 @@
-<%= form_for ([@coffee, @coffee.reviews.build]) do |f| %>
+<h1>Edit Review</h1>
+<%= form_for ([@coffee, @review]) do |f| %>
 <%= f.label :comment   %>
 <%= f.text_area :comment %>
 

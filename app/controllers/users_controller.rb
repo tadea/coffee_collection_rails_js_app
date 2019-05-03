@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
        if @user.save
            session[:user_id] = @user.id
+            flash[:message] = "You are succesfully signed in!"
            redirect_to coffees_path
        else
            render :new
