@@ -1,5 +1,6 @@
 class CoffeesController < ApplicationController
   before_action :find_coffee, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:edit, :destroy]
 
   def index
     if params[:grind].blank?
@@ -21,7 +22,7 @@ class CoffeesController < ApplicationController
   def create
     @coffee = Coffee.new(coffee_params)
 
-    @coffee.user = current_user
+    @coffee.user_id = current_user.id
 
       if @coffee.save
         #session[:user] = @user.id
@@ -56,6 +57,13 @@ class CoffeesController < ApplicationController
 
   def find_coffee
     @coffee = Coffee.find(params[:id])
+  end
+
+  def authenticate_user!
+    if @coffee.users != current_user
+      flash[:error] = "You can only edit and delete if you created Coffee!"
+      redirect_to coffees_path
+    end
   end
 
 end
