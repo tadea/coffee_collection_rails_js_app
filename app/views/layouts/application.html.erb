@@ -10,21 +10,17 @@
   </head>
 
   <body>
+  <% if logged_in? %>
+
     <nav class="navbar navbar-default">
-
       <div class="container">
-
         <div class="navbar-header">
+
           <%= link_to "Coffee Collection", coffees_path, class: "navbar-brand" %>
           </div>
 
-            <ul class="nav navbar-nav">
-              <li><%= link_to "Sign Up", signup_path %></li>
-
+            <ul class="nav navbar-nav navbar-right">
                   <li><%= link_to "Log Out", logout_path, method: :delete %></li>
-
-                <li><%= link_to "Log In", login_path %></li>
-
               </ul>
 
             <ul class="nav navbar-nav navbar-right">
@@ -40,11 +36,17 @@
                     </li>
               </ul>
               <li><%= link_to "Add Coffee", new_coffee_path %></li>
+            <% end %>
+          </div>
+        </nav>
 
-
-      </div>
-    </nav>
-
+        <div class="wrapper">
+              <% if flash[:message] %>
+                <p style="color: blue; font-size: 16px;"><%= flash[:message] %></p>
+              <% end %>
+              <% if flash[:error] %>
+                <p style="color: red; font-size: 16px;"><%= flash[:error] %></p>
+              <% end %>
 
 
     <%= yield %>
