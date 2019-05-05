@@ -4,6 +4,7 @@
 <h4>Process: <%= @coffee.process %></h4>
 <h4>Grind: <%= @coffee.grind.name %></h4>
 <p><%= @coffee.description %></p>
+
 <% if @coffee.user_id == current_user.id %>
   <%= link_to "Edit", edit_coffee_path %><br>
   <%= link_to "Delete", coffee_path(@coffee), method: :delete, data: {confirm: "Are you sure?"} %>
