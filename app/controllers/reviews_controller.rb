@@ -13,6 +13,7 @@ class ReviewsController < ApplicationController
       if @review.save
         redirect_to coffee_path(@coffee)
       else
+        flash[:error] = "All fields are required"
         render :new
       end
   end
@@ -23,6 +24,7 @@ end
 
 def update
   if @review.update(review_params)
+    flash[:message] = "Successfully updated!"
     redirect_to coffee_path(@coffee)
   else
     render 'edit'

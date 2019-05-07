@@ -12,7 +12,7 @@
   <body>
   <% if logged_in? %>
 
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default", style="background-color: #e3f2fd;">
       <div class="container">
         <div class="navbar-header">
 
@@ -46,7 +46,7 @@
                 <p style="color: blue; font-size: 16px;"><%= flash[:message] %></p>
               <% end %>
               <% if flash[:error] %>
-                <p style="color: red; font-size: 1px;"><%= flash[:error] %></p>
+                <p style="color: red; font-size: 16px;"><%= flash[:error] %></p>
               <% end %>
 
 
@@ -54,7 +54,9 @@
 
     <%= yield %>
 
-    <footer class="footer mt-5">
+
+
+    <footer id="footer">
         <div class="container">
             <% if current_user.present? %>
             <p class='text-center'>Logged as:<%= current_user.email %></p>

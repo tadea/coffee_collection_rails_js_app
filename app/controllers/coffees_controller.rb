@@ -1,6 +1,6 @@
 class CoffeesController < ApplicationController
   before_action :find_coffee, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:edit, :destroy]
+  before_action :authenticate_user!, only: [:edit, :update, :destroy]
 
   def index
     if params[:grind].blank?
@@ -21,13 +21,11 @@ class CoffeesController < ApplicationController
 
   def create
     @coffee = Coffee.new(coffee_params)
-
     @coffee.user_id = current_user.id
-
       if @coffee.save
-        #session[:user] = @user.id
       redirect_to coffee_path(@coffee)
     else
+      flash[:error] = "All fields are required"
       render :new
     end
   end
@@ -38,6 +36,7 @@ class CoffeesController < ApplicationController
 
   def update
     if @coffee.update(coffee_params)
+      flash[:message] = "Successfully updated!"
       redirect_to coffee_path(@coffee)
     else
       render 'edit'
@@ -46,6 +45,7 @@ class CoffeesController < ApplicationController
 
   def destroy
     @coffee.destroy
+    flash[:message] = "Successfully deleted!"
     redirect_to coffees_path
   end
 
@@ -60,8 +60,8 @@ class CoffeesController < ApplicationController
   end
 
   def authenticate_user!
-    if @coffee.users != current_user
-      flash[:error] = "You can only edit and delete if you created Coffee!"
+    if @coffee.user_id != current_user.id
+      #flash[:error] = "You can only edit and delete if you created Coffee!"
       redirect_to coffees_path
     end
   end
