@@ -1,8 +1,21 @@
 <h4><%= params[:grind] %></h4>
-  <% if @coffees.count == 0 %>
+
+<% if @coffees.count == 0 %>
+
     <h1> There is no coffees for this grind. </h1>
-    <% else %>
+
+  <% else %>
+
+    <div class="row">
+
       <% @coffees.each do |coffee| %>
-        <h3><%= link_to coffee.name, coffee_path(coffee) %></h3>
-    <% end %>
+
+        <div class="col-md-3">
+          <%= link_to image_tag(url_for(coffee.image),class: "coffee"), coffee_path(coffee)%>
+        </div>
+
+      <% end %>
+
+    </div>
+
   <% end %>

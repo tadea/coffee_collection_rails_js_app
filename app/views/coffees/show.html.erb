@@ -1,15 +1,41 @@
+<div class="row">
 
-<h2><%= @coffee.name %></h2>
-<h3><%= @coffee.origin %></h3>
-<h4>Process: <%= @coffee.process %></h4>
-<h4>Grind: <%= @coffee.grind.name %></h4>
-<p><%= @coffee.description %></p>
+	   <div class="col-md-4">
 
-<% if @coffee.user_id == current_user.id %>
-  <%= link_to "Edit", edit_coffee_path %><br>
-  <%= link_to "Delete", coffee_path(@coffee), method: :delete, data: {confirm: "Are you sure?"} %>
-<% end %>
-<br>
-<h2>Reviews</h2>
-<%= link_to "Create Review", new_coffee_review_path(@coffee) %>
-<p><%= render @coffee.reviews %></p>
+        <%= image_tag((@coffee.image), class: "coffee-show")%>
+      </div>
+
+	    <div class="col-md-8">
+
+          <h2><%= @coffee.name %></h2>
+          <h3><%= @coffee.origin %></h3>
+          <h4>Process: <%= @coffee.process %></h4>
+          <h4>Grind: <%= @coffee.grind.name %></h4>
+          <p><%= @coffee.description %></p>
+
+      </div>
+
+      <div class="links btn-group">
+
+          <% if @coffee.user_id == current_user.id %>
+
+          <%= link_to "Edit", edit_coffee_path, class: "btn btn-custom" %>
+          <%= link_to "Delete", coffee_path(@coffee), class: "btn btn-custom", method: :delete, data: {confirm: "Are you sure?"} %>
+          <% end %>
+      </div>
+
+
+<div class="row">
+
+	<div class="col-md-4">
+
+		<div class="reviews">
+
+        <h2>Reviews</h2>
+        <p><%= render @coffee.reviews %></p>
+    </div>
+
+          <%= link_to "Create Review", new_coffee_review_path(@coffee), class: "btn-custom2" %>
+
+    </div>
+  </div>

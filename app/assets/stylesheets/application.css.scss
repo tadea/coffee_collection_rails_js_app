@@ -16,20 +16,125 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+/* General sstyle */
+ body {
+	background-color: #ffff;
+	font-family: 'Lora', serif;
+}
 
- #body {
-     height: 100%;
-     width: 100%;
-     background-image:url(../images/background.jpg);
-     background-repeat: repeat;
-     background-attachment: fixed;
-     background-position: center;
-     background-size: cover;
-   }
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Ubuntu', sans-serif;
+	font-weight: 300;
+}
 
- #footer {
-   position: absolute;
-   bottom: 0;
-   width: 100%;
-   height: 2.5rem;            /* Footer height */
- }
+p.alert, p.notice {
+	margin: 0;
+}
+
+/*Coffee style*/
+
+ .coffee {
+	height: 350px;
+	width: 250px;
+	margin-bottom: 40px;
+}
+
+.coffee-show {
+	height: 350px;
+	width: 250px;
+}
+
+/* New Coffee Form styles */
+
+.new-coffee-form {
+
+
+	h1 {
+		margin-top: 0;
+
+	}
+
+}
+
+
+
+/*Reviews style*/
+.reviews {
+
+	margin-top: 40px;
+
+	h1 {
+		margin-top: 0;
+		margin-bottom: 15px;
+		font-size: 2em;
+	}
+
+	.review {
+		border-bottom: 1px solid gainsboro;
+		margin-bottom: 15px;
+		padding-bottom: 10px;
+
+		.review-comment {
+			font-size: 1.05em;
+			line-height: 1.5;
+		}
+
+	}
+
+	.new-review {
+		padding-top: 8px;
+	}
+
+}
+
+
+/* Button/link styles */
+
+.btn-custom {
+	color: darken(#f1c40f, 5%);
+	background-color: #fff;
+	border: 1px solid darken(#f1c40f, 5%);
+	padding: 8px 20px;
+	border-radius: 5px;
+	font-family: 'Ubuntu', sans-serif;
+	&:hover {
+		text-decoration: none;
+		background-color: darken(#f1c40f, 5%);
+		color: #fff;
+		transition: 0.5s;
+	}
+}
+
+.btn-custom2 {
+	color: #333;
+	background-color: #fff;
+	border: 1px solid #222;
+	padding: 8px 20px;
+	border-radius: 5px;
+	font-family: 'Ubuntu', sans-serif;
+	&:hover {
+		text-decoration: none;
+		background-color: #333;
+		color: #fff;
+		transition: 0.5s;
+	}
+}
+
+.links {
+
+	.btn-custom {
+		padding: 3px 10px;
+		font-weight: 300;
+	}
+
+}
+
+.coffee-links {
+
+	.btn-custom {
+		padding: 3px 10px;
+		font-weight: 300;
+		margin-top: 40px;
+	}
+
+}

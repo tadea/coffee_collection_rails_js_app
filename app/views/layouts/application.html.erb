@@ -51,18 +51,17 @@
 
 
 
-
+<div class="container"
     <%= yield %>
+    </div>
 
 
-
-    <footer id="footer">
         <div class="container">
             <% if current_user.present? %>
             <p class='text-center'>Logged as:<%= current_user.email %></p>
             <% end%>
       </div>
-    </footer>
+
 
   </body>
 </html>
