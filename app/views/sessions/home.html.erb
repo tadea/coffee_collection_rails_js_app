@@ -1,7 +1,21 @@
-<h1>Welcome!</h1>
+<% if flash[:message] %>
+ <h4><%= flash[:message] %></h4>
+ <% end %>
 
-<%= link_to "Sign up", signup_path, class:"btn btn-primary" %>
-          OR
-<%= link_to "Log In", login_path, class: "btn btn-primary"%>
-          OR
-<%= link_to "Log in via Facebook", '/auth/facebook', class: "btn btn-primary" %>
+<div class="columns is-centered landing">
+  <div class="column" align="center">
+      <br>
+    <h1 class="title is-1">Coffee Collection</h1>
+    <h5>Good Ideas Starts With Great Coffee</h5>
+    <h1><div class="column" align="center">
+      <%= link_to "Sign up", signup_path, class:"btn btn-primary" %>
+    </div></h1>
+    <h1><div class="column" align="center">
+      <%= link_to "Log In", login_path, class: "btn btn-primary"%>
+    </div></h1>
+    <h1><div class="column" align="center">
+      <%= link_to "Log in via Facebook", '/auth/facebook', class: "btn btn-primary" %>
+    </div></h1>
+
+  </div>
+</div>

@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+
     before_action :find_coffee
     before_action :find_review, only: [ :edit, :update, :destroy]
 

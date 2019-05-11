@@ -5,5 +5,5 @@ class Coffee < ApplicationRecord
 
   has_one_attached :image
 
-  validates :name, :description, :process, :origin, :grind,  presence: true
+  validates :name, :description, :process, :origin, :grind, :image,  presence: true
 end

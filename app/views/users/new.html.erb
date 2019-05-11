@@ -1,3 +1,6 @@
+<div class="columns is-centered landing">
+  <div class="column" align="center">
+
 <h1>Sign Up here</h1>
 
 <%= form_for (@user), url: signup_path do |f| %>
@@ -8,7 +11,9 @@
 <%= f.label :password %>
 <%= f.password_field :password %>
 
-<%= f.submit "Sign In" %>
-
+<%= f.submit "Sign In", class:"btn btn-secondary" %>
 
 <% end %>
+<%= link_to "Go Back", '/' %>
+</div>
+</div>

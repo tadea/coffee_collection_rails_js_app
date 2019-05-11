@@ -9,8 +9,8 @@ class SessionsController < ApplicationController
         session[:user_id] = @user.id
         redirect_to coffees_path
        else
-        #flash[:message] = "Something went wrong!"
-        redirect_to root_path
+        flash[:message] = "The information you provided does not match our records. Please re-enter your login information or signup."
+        redirect_to login_path
        end
     end
 
@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
       u.email = auth['info']['email']
       u.password = auth['uid']
     end
-    
+
     session[:user_id] = @user.id
 
     redirect_to coffees_path

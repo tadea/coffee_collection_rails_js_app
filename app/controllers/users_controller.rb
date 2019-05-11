@@ -4,6 +4,7 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+
   def create
     @user = User.new(user_params)
 
@@ -12,9 +13,13 @@ class UsersController < ApplicationController
             flash[:message] = "You are succesfully signed in!"
            redirect_to coffees_path
        else
+         flash[:message] = "#{@user.errors.full_messages.to_sentence}"
            render :new
        end
    end
+
+
+
 
   private
   def user_params

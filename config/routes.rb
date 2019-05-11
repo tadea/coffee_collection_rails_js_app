@@ -20,8 +20,11 @@ Rails.application.routes.draw do
     resources :reviews,  :except => [:index]
   end
 
+  
 
-  #resources :sessions, only: [:new, :create, :destroy]
+
+
+
 
 
 

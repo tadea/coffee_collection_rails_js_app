@@ -25,7 +25,7 @@
 
             <ul class="nav navbar-nav navbar-right">
               <li class="dropdown show">
-                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                <a href="#" role="button" id="dropdownMenuLink"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Grinds<span class="caret"</span></a>
                     <ul class="dropdown-menu" role"menu">
                       <% Grind.all.each do |grind| %>
@@ -36,31 +36,34 @@
                     </li>
               </ul>
               <li><%= link_to "Add Coffee", new_coffee_path %></li>
+            
+
             <% end %>
           </div>
         </nav>
 
-
-        <div class="wrapper">
-              <% if flash[:message] %>
-                <p style="color: blue; font-size: 16px;"><%= flash[:message] %></p>
-              <% end %>
-              <% if flash[:error] %>
-                <p style="color: red; font-size: 16px;"><%= flash[:error] %></p>
-              <% end %>
-
-
+          <%= flash[:message] if flash[:message]%>
 
 <div class="container"
     <%= yield %>
     </div>
 
+    <!-- Footer -->
+<footer class="page-footer font-small blue fixed-bottom">
+  <% if current_user.present? %>
+  <p class='text-center'>Logged as:<%= current_user.email %></p>
+  <% end%>
+<!-- Copyright -->
+<div class="footer-copyright text-center py-3">© 2019 Copyright:CoffeeCollectionRailsApp
 
-        <div class="container">
-            <% if current_user.present? %>
-            <p class='text-center'>Logged as:<%= current_user.email %></p>
-            <% end%>
-      </div>
+</div>
+<!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+
+
+
 
 
   </body>
