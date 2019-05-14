@@ -17,10 +17,15 @@ Rails.application.routes.draw do
   end
 
   resources :coffees do
-    resources :reviews,  :except => [:index]
+  collection do
+    get :coffee_origin
+    get :reviewed
+  end
+  resources :reviews,  :except => [:index]
+
   end
 
-  
+
 
 
 
