@@ -12,7 +12,18 @@ class CoffeesController < ApplicationController
   end
 
   def show
-    
+
+  end
+
+  def coffee_origin
+
+    @coffees = Coffee.coffee_origin
+    render 'coffee_origin'
+  end
+
+  def reviewed
+    @coffees = Coffee.reviewed
+    render action: :index
   end
 
   def new
@@ -58,7 +69,7 @@ class CoffeesController < ApplicationController
   end
 
   def find_coffee
-    @coffee = Coffee.find(params[:id])
+    @coffee = Coffee.find_by(id: params[:id])
   end
 
   def authenticate_user!
