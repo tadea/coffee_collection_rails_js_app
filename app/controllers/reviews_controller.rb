@@ -1,23 +1,23 @@
 class ReviewsController < ApplicationController
 
-    before_action :find_coffee
-    before_action :find_review, only: [ :edit, :update, :destroy]
+before_action :find_coffee
+before_action :find_review, only: [ :edit, :update, :destroy]
 
-  def new
-    @review = Review.new
-  end
+def new
+  @review = Review.new
+end
 
-  def create
-    @review = Review.new(review_params)
-    @review.coffee_id = @coffee.id
-    @review.user_id = current_user.id
-      if @review.save
-        redirect_to coffee_path(@coffee)
-      else
-        flash[:error] = "All fields are required"
-        render :new
-      end
-  end
+def create
+  @review = Review.new(review_params)
+  @review.coffee_id = @coffee.id
+  @review.user_id = current_user.id
+    if @review.save
+      redirect_to coffee_path(@coffee)
+    else
+      flash[:error] = "All fields are required"
+      render :new
+    end
+end
 
 
 def edit
@@ -38,7 +38,8 @@ def destroy
 end
 end
 
-  private
+
+private
 
   def review_params
     params.require(:review).permit(:comment)

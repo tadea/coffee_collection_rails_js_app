@@ -1,0 +1,9 @@
+<div class="row">
+  <div class="col-md-4">
+  </div>
+  <div class="col-md-8">
+    <%= params[:origin] %>
+    <% @coffees.each do |coffee| %>
+      <h4><%= link_to coffee.origin, coffee_path(coffee) %>
+          <% end %></h4>
+  </div>

@@ -9,7 +9,7 @@ class Coffee < ApplicationRecord
 
 
 
-  scope :coffee_origin, -> { order('origin') }
+  scope :coffee_origin, -> { order('origin')}
   scope :reviewed,      -> { joins(:reviews).distinct("reviews.coffee_id") }
-  
+
 end
