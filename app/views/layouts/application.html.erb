@@ -26,10 +26,7 @@
 
           <ul class="nav navbar-nav navbar-right">
 
-            <li><%= link_to "Add Coffee", new_coffee_path %></li>
-            <li><%= link_to "Origins", coffee_origin_coffees_path %></li>
-            <li><%= link_to "Reviewed", reviewed_coffees_path %></li>
-                <% end %>
+
 
               <li class="dropdown show">
                   <a href="#" role="button" id="dropdownMenuLink"
@@ -42,6 +39,11 @@
 
                     </li>
                 </ul>
+                <li><%= link_to "Add Coffee", new_coffee_path %></li>
+                <li><%= link_to "Origins", coffee_origin_coffees_path %></li>
+                <li><%= link_to "Reviewed", reviewed_coffees_path %></li>
+                <li><%= link_to "My Collection", users_path %></li>
+                    <% end %>
       </div>
     </nav>
 
