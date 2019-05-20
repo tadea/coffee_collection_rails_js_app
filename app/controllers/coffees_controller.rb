@@ -1,7 +1,7 @@
 class CoffeesController < ApplicationController
   before_action :find_coffee, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:edit, :update, :destroy]
-
+  before_action :redirect_if_coffee_nonexistent!, only: [:show]
 def index
     if params[:grind].blank?
     @coffees = Coffee.all.order("created_at DESC")
@@ -69,6 +69,13 @@ end
 def find_coffee
   @coffee = Coffee.find_by(id: params[:id])
 end
+
+def redirect_if_coffee_nonexistent!
+    if @coffee.nil?
+      flash[:message] = 'Coffee Does Not Exist!'
+      redirect_to coffees_path
+    end
+  end
 
 def authenticate_user!
   if @coffee.user_id != current_user.id
