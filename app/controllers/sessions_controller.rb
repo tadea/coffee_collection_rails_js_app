@@ -10,7 +10,7 @@ def create
    session[:user_id] = @user.id
      redirect_to coffees_path
    else
-    flash[:message] = "The information you provided does not match our records. Please re-enter your login information or signup."
+    flash[:notice] = "The information you provided does not match our records. Please re-enter your login information or signup."
     redirect_to login_path
   end
 end

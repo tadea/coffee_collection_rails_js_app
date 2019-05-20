@@ -32,9 +32,10 @@ def create
   @coffee = Coffee.new(coffee_params)
     @coffee.user_id = current_user.id
       if @coffee.save
+        flash[:success] = "#{@coffee.name} was successfully added."
       redirect_to coffee_path(@coffee)
     else
-      flash[:error] = "All fields are required"
+      flash[:error] = "#{@coffee.errors.full_messages.to_sentence}."
       render :new
   end
 end
@@ -45,7 +46,7 @@ end
 
 def update
   if @coffee.update(coffee_params)
-    flash[:message] = "Successfully updated!"
+    flash[:success] = "#{@coffee.name} was successfully updated."
     redirect_to coffee_path(@coffee)
   else
     render 'edit'
@@ -54,7 +55,7 @@ end
 
 def destroy
   @coffee.destroy
-  flash[:message] = "Successfully deleted!"
+  flash[:success] = "#{@coffee.name} was successfully deleted."
   redirect_to coffees_path
 end
 
