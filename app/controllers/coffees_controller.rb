@@ -2,6 +2,7 @@ class CoffeesController < ApplicationController
   before_action :find_coffee, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:edit, :update, :destroy]
   before_action :redirect_if_coffee_nonexistent!, only: [:show]
+
 def index
     if params[:grind].blank?
     @coffees = Coffee.all.order("created_at DESC")
@@ -23,6 +24,7 @@ def reviewed
   @coffees = Coffee.reviewed
   render action: :index
 end
+
 
 def new
   @coffee = Coffee.new

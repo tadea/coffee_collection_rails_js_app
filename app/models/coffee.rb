@@ -6,13 +6,12 @@ class Coffee < ApplicationRecord
   has_one_attached :image
 
   validates :name, :description, :process, :origin,  presence: true
-  validates :image, presence: true
+  validates :image, presence: true, on: :create
   validate :image_type
 
 
   scope :coffee_origin, -> { order('origin')}
   scope :reviewed,      -> { joins(:reviews).distinct("reviews.coffee_id") }
-
 
   private
 

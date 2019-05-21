@@ -12,11 +12,9 @@ Rails.application.routes.draw do
     get '/auth/facebook/callback' =>  'sessions#fbcreate'
 
 
-  resources :users do
-    resources :coffees
-  end
+  resources :users
 
-  resources :coffees do
+  resources :coffees do  #nested
   collection do
     get :coffee_origin
     get :reviewed
@@ -25,8 +23,7 @@ Rails.application.routes.draw do
 
   end
 
-
-
+  
 
 
 
