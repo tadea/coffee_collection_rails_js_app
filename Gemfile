@@ -2,6 +2,10 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.1'
+
+gem 'jquery-rails'
+gem 'active_model_serializers'
+
 gem 'rails', '~> 5.2.3'
 gem 'sqlite3'
 gem 'puma', '~> 3.11'
@@ -19,8 +23,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'dotenv-rails'
 
-gem 'jquery-rails'
-gem 'active_model_serializers'
+
 
 
 

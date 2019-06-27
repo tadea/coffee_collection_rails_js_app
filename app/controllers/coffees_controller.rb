@@ -18,6 +18,11 @@ def index
 end
 
 def show
+  @coffees = Coffee.all
+  respond_to do |f|
+    f.html
+    f.json {render json: @coffees}
+  end
 end
 
 def coffee_origin
