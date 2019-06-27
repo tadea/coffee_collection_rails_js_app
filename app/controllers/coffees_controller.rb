@@ -4,11 +4,16 @@ class CoffeesController < ApplicationController
   before_action :redirect_if_coffee_nonexistent!, only: [:show]
 
 def index
-    if params[:grind].blank?
-    @coffees = Coffee.all.order("created_at DESC")
-  else
+    if !params[:grind].blank?
     @grind_id = Grind.find_by(name: params[:grind]).id
     @coffees = Coffee.where(:grind_id => @grind_id).order("created_at DESC")
+  else
+     @coffees = Coffee.all
+     respond_to do |f|
+       f.html
+       f.json {render json: @coffees}
+     end
+
   end
 end
 
