@@ -11,17 +11,16 @@ def index
      @coffees = Coffee.all
      respond_to do |f|
        f.html
-       f.json {render json: @coffees}
+       f.json {render json: @coffees} #include: 'reviews'}
      end
 
   end
 end
 
-def show
-  @coffees = Coffee.all
-  respond_to do |f|
-    f.html
-    f.json {render json: @coffees}
+  def show
+    respond_to do |f|
+      f.html
+      f.json {render json: @coffee}
   end
 end
 
