@@ -13,15 +13,25 @@ const coffesIndexClick = () => {
       .then(coffees => {
         $('#container').html('')
         coffees.forEach(coffee => {
-          console.log(coffee)
+          let newCoffee = new Coffee(coffee)
+          let coffeeHtml = newCoffee.formatIndex()
+           $('.container').append(coffeeHtml)
         })
       })
   })
 }
 
-function Coffee(id, name, process, grind_id) {
-  this.id = id
-  this.name = name
-  this.process = process
-  this.grind_id = grind_id
+function Coffee(coffee) {
+  this.id = coffee.id
+  this.name = coffee.name
+  this.process = coffee.process
+  this.grind_id = coffee.grind_id
+}
+
+Coffee.prototype.formatIndex = function(){
+  let coffeeHtml = `
+    <a href="/coffees/${this.id}"<h1>${this.name}</h1></a>
+  `
+  return coffeeHtml
+
 }
