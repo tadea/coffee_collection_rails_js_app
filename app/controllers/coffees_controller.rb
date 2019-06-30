@@ -44,7 +44,8 @@ def create
     @coffee.user_id = current_user.id
       if @coffee.save
         flash[:success] = "#{@coffee.name} was successfully added."
-      redirect_to coffee_path(@coffee)
+      #redirect_to coffee_path(@coffee)
+      render json: @coffee
     else
       flash[:error] = "#{@coffee.errors.full_messages.to_sentence}."
       render :new
