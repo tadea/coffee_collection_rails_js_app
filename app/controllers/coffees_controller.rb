@@ -21,8 +21,8 @@ end
     respond_to do |f|
       f.html
       f.json {render json: @coffee}
+    end
   end
-end
 
 def coffee_origin
   @coffees = Coffee.coffee_origin

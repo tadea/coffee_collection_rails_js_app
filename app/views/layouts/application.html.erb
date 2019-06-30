@@ -14,10 +14,10 @@
   <% if logged_in? %>
 
     <nav class="navbar navbar-default", style="background-color: #e3f2fd;">
-      <div class="container">
+
         <div class="navbar-header">
 
-          <%= link_to "Coffee Collection", coffees_path, class: "navbar-brand"%>
+
         </div>
 
           <ul class="nav navbar-nav navbar-right">
@@ -39,19 +39,15 @@
 
                     </li>
                 </ul>
+                <li><%= link_to "Coffees", coffees_path, class: "all-coffees"%></li>
                 <li><%= link_to "Add Coffee", new_coffee_path %></li>
                 <li><%= link_to "Origins", coffee_origin_coffees_path %></li>
                 <li><%= link_to "Reviewed", reviewed_coffees_path %></li>
-                
+
                     <% end %>
-      </div>
+
     </nav>
-        <div class="container">
-            <% flash.each do |key, value| %>
-        <div class="<%= flash_class(key) %>">
-          <%= value %>
-        </div>
-      <% end %>
+
 
       <div class="container"
           <%= yield %>

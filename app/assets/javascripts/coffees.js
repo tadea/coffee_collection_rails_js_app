@@ -1,18 +1,17 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 $(document).ready(function() {
-  // console.log('hellow')
   coffesIndexClick()
 })
 
 const coffesIndexClick = () => {
-  $('.navbar-brand').on('click', (e) => {
+  $('.all-coffees').on('click', (e) => {
     e.preventDefault()
-    history.pushState(null, null, 'coffees')
+    history.pushState(null, null, "coffees")
     fetch('/coffees.json')
       .then(response => response.json())
       .then(coffees => {
-        $('#container').html('')
+        $('.container').html('')
         coffees.forEach(coffee => {
           let newCoffee = new Coffee(coffee)
           let coffeeHtml = newCoffee.formatIndex()
@@ -20,12 +19,10 @@ const coffesIndexClick = () => {
         })
       })
   })
-}
-
 
   $(document).on('click', ".show_coffee", function(e) {
     e.preventDefault()
-    $('#container').html('')
+    $('.container').html('')
     let id = $(this).attr('data-id')
     fetch(`/coffees/${id}.json`)
     .then(response => response.json())
@@ -35,6 +32,16 @@ const coffesIndexClick = () => {
        $('.container').append(coffeeHtml)
     })
   })
+}
+
+
+
+
+
+    // $("#new_coffee").on("submit", function(e) {
+    //   e.preventDefault()
+    //   console.log($(this).serialize())
+    // })
 
 
 function Coffee(coffee) {
@@ -44,17 +51,17 @@ function Coffee(coffee) {
   this.grind_id = coffee.grind_id
 }
 
-Coffee.prototype.formatIndex = function(){
+Coffee.prototype.formatIndex = function() {
   let coffeeHtml = `
     <a href="/coffees/${this.id}" data-id="${this.id}" class="show_coffee"<h1>${this.name}</h1></a>
   `
   return coffeeHtml
-
 }
 
-Coffee.prototype.formatShow = function(){
+Coffee.prototype.formatShow = function() {
   let coffeeHtml = `
     <h3>${this.name}</h3>
+    <button class"next-coffe">Next</button>
   `
   return coffeeHtml
 
