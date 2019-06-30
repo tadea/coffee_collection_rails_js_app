@@ -32,16 +32,22 @@ const coffesIndexClick = () => {
        $('.container').append(coffeeHtml)
     })
   })
+
+  $("#new_coffee").on("submit", function(e) {
+    e.preventDefault()
+    const values = $(this).serialize()
+
+    $.post("/coffees", values).done(function(data) {
+      //console.log(data)
+      $('.container').html('')
+      const newCoffee = new Coffee(data)
+      const coffeehtmlToAdd = newCoffee.formatShow()
+      $('.container').html(coffeehtmlToAdd)
+
+    })
+  })
 }
 
-
-
-
-
-    // $("#new_coffee").on("submit", function(e) {
-    //   e.preventDefault()
-    //   console.log($(this).serialize())
-    // })
 
 
 function Coffee(coffee) {
@@ -61,7 +67,7 @@ Coffee.prototype.formatIndex = function() {
 Coffee.prototype.formatShow = function() {
   let coffeeHtml = `
     <h3>${this.name}</h3>
-    <button class"next-coffe">Next</button>
+
   `
   return coffeeHtml
 
