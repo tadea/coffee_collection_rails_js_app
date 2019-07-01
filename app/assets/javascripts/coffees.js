@@ -55,6 +55,7 @@ function Coffee(coffee) {
   this.name = coffee.name
   this.process = coffee.process
   this.grind_id = coffee.grind_id
+  this.description = coffee.description
 }
 
 Coffee.prototype.formatIndex = function() {
@@ -67,6 +68,8 @@ Coffee.prototype.formatIndex = function() {
 Coffee.prototype.formatShow = function() {
   let coffeeHtml = `
     <h3>${this.name}</h3>
+    <h3>${this.process}</h3>
+    <h3>${this.description}</h3>
 
   `
   return coffeeHtml
