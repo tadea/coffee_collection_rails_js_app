@@ -22,7 +22,7 @@ gem 'thin'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'dotenv-rails'
-
+gem 'seed_dump'
 
 
 

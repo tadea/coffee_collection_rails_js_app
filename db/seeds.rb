@@ -1,7 +1,30 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+Coffee.create!([
+  {
+    name: "Flagstaff",
+    description: "Flagstaff is also the secret behind our famous Cold Brew. When steeped for 12 hours in room   temperature water, this blend produces a caramel sweetness, soft citric acidity and tones of milk chocolate with a  juicy finish.",
+    process: "Natural",
+    grind_id: 1,
+    origin: "Brazil",
+    user_id: 1
+  },
+
+  {
+    name: "Nyeri",
+    description: "This coffee boasts juicy notes of sweet-citrus, full-bodied chocolate, and a subtle zesty kick as it finishes. A truly exceptional, exciting, and vibrant coffee.",
+    process: "Natural",
+    grind_id: 1,
+    origin: "Kenya",
+    user_id: 1
+  }
+])
+
+Grind.create!([
+  {name: "French Press"},
+  {name: "Pour Over"},
+  {name: "Espresso"}
+])
+
+User.create!([
+  {email: "test@test.com", password_digest: "$2a$12$2mWBzpCttvdRI7NfpPUvVOkhFyiiEUfCTwrDcVrOeBpsisGxXCHVS", uid: nil},
+  {email: "tadea@tadea.com", password_digest: "$2a$12$fXUTPDzsPOtQAlFZjVWmaO8UsVY8nW4ChWT3sJgLg.j4mXnPTL.Hm", uid: nil}
+])
