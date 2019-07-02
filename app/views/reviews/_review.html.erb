@@ -1,17 +1,12 @@
 <div class="review">
-
-  <p class="review-comment"><%= review.comment %></p>
+  <p class="review-comment">
+    <%= review.comment %><br>by: <%= review.user.email %>
+  </p>
 
     <% if logged_in? %>
-
       <% if review.user_id == current_user.id %>
-
-        <div class="links btn-group">
-
           <%= link_to "Edit", edit_coffee_review_path(review.coffee, review), class: "btn btn-custom" %>
           <%= link_to "Delete", coffee_review_path(review.coffee, review),class: "btn btn-custom", method: :delete, data: {confirm: "Are you sure?"} %>
-      </div>
-
+      <% end %>
     <% end %>
- <% end %>
 </div>
