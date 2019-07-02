@@ -5,17 +5,20 @@
 <div class="columns is-centered landing">
   <div class="column" align="center">
       <br>
+    <% if !logged_in? %>
     <h1 class="title is-1">Coffee Collection</h1>
     <h5>Good Ideas Starts With Great Coffee</h5>
     <h1><div class="column" align="center">
       <%= link_to "Sign up", signup_path, class:"btn btn-primary" %>
-    </div></h1>
-    <h1><div class="column" align="center">
       <%= link_to "Log In", login_path, class: "btn btn-primary"%>
-    </div></h1>
-    <h1><div class="column" align="center">
       <%= link_to "Log in via Facebook", '/auth/facebook', class: "btn btn-primary" %>
     </div></h1>
+    <% else %>
+    <h3 class="home-title"> Coffee Time!</h3>
+    <br>
+    <h4><%= link_to "View All Coffees", coffees_path, class: "all-coffees" %> | <%= link_to "Create a New Coffee", new_coffee_path %></h4>
+    <% end %>
+
 
   </div>
 </div>
