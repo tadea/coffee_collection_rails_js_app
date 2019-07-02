@@ -1,24 +1,16 @@
-# README
+# Coffee Collection Rails with JS App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Welcome to Coffee Collection Rails with Js App! An app that will allow a user to keep a record of their favorites coffees. Other users will be able see the coffees details and be able to review specific coffee.
 
-Things you may want to cover:
 
-* Ruby version
+# Installation
 
-* System dependencies
+Clone this repository, run bundle install, and run 'thin start --ssl' to start up a server.
 
-* Configuration
+# Contributing
 
-* Database creation
+Bug reports and pull requests are welcome on GitHub at https://github.com/catherinism/family-friendly-travel-guide. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
-* Database initialization
+## License
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
