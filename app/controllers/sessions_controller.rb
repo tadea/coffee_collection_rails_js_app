@@ -21,7 +21,7 @@ def fbcreate
     u.password = auth['uid']
   end
     session[:user_id] = @user.id
-    redirect_to coffees_path
+    redirect_to root_path
 end
 
 def home

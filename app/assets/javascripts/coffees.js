@@ -53,23 +53,35 @@ const coffesIndexClick = () => {
 function Coffee(coffee) {
   this.id = coffee.id
   this.name = coffee.name
-  this.process = coffee.process
-  this.grind_id = coffee.grind_id
   this.description = coffee.description
+  this.process = coffee.process
+  this.origin = coffee.origin
+  this.grind_id = coffee.grind_id
+  this.reviews = coffee.reviews
 }
 
 Coffee.prototype.formatIndex = function() {
   let coffeeHtml = `
-    <a href="/coffees/${this.id}" data-id="${this.id}" class="show_coffee"<h1>${this.name}</h1></a>
+    <a href="/coffees/${this.id}" data-id="${this.id}" class="show_coffee"
+    <h1 class="show_name">${this.name}</h1></a><p class="show_process">Process: ${this.process}</p>
   `
   return coffeeHtml
 }
 
 Coffee.prototype.formatShow = function() {
+
+  let reviewsHtml = ``
+    this.reviews.forEach((rev) => {
+      reviewsHtml += `<li> ${rev.id} - ${rev.comment}`
+    })
+
   let coffeeHtml = `
     <h3>${this.name}</h3>
     <h3>${this.process}</h3>
     <h3>${this.description}</h3>
+
+    <h3>Reviews</h3>
+           ${reviewsHtml}
 
   `
   return coffeeHtml
