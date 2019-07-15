@@ -4,8 +4,41 @@ $(document).ready(() => {
   coffesIndexClick()
   showCoffee()
   submitForm()
+  coffeesOrderedClick()
+
 })
 
+
+function coffeesOrderedClick() {
+  $('.ordered-coffees').on('click', (e) => {
+    e.preventDefault()
+    history.pushState(null, null, "coffees")
+    fetch('/coffees.json')
+      .then(response => response.json())
+      .then(coffees => {
+        $('.container').html('')
+
+        coffees.sort(function (a,b) {
+          var nameA = a.name.toUpperCase();
+          var nameB = b.name.toUpperCase();
+
+          if (nameA < nameB) {
+            return -1;
+          }
+          if (nameA > nameB) {
+            return 1;
+          }
+          return 0;
+        });
+        debugger
+        coffees.forEach(coffee => {
+          let newCoffee = new Coffee(coffee)
+          let coffeeHtml = newCoffee.formatIndex()
+           $('.container').append(coffeeHtml)
+        })
+      })
+  })
+}
 
 
 
@@ -37,6 +70,7 @@ function showCoffee() {
         let newCoffee = new Coffee(coffee)
         let coffeeHtml = newCoffee.formatShow()
          $('.container').append(coffeeHtml)
+
       })
     })
   }
@@ -55,8 +89,8 @@ function submitForm() {
           $('.container').html(coffeehtmlToAdd)
         })
     })
-
 }
+
 
 
 

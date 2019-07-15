@@ -34,9 +34,11 @@
           </li>
         </ul>
           <li><%= link_to "Coffees", coffees_path, class: "all-coffees"%></li>
+          <li><%= link_to "Ordered", coffees_path, class: "ordered-coffees"%></li>
           <li><%= link_to "Add Coffee", new_coffee_path %></li>
           <li><%= link_to "Origins", coffee_origin_coffees_path %></li>
           <li><%= link_to "Reviewed", reviewed_coffees_path %></li>
+
               <% end %>
     </nav>
       <div class="flash">

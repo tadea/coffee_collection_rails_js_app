@@ -1,5 +1,5 @@
 class ReviewSerializer < ActiveModel::Serializer
-  attributes :id, :comment, :user_id
+  attributes :id, :comment
 
   belongs_to :coffee
 end
