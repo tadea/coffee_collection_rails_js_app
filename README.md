@@ -24,7 +24,7 @@ To install this application use the following steps:
   ```
 # Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/catherinism/family-friendly-travel-guide. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
