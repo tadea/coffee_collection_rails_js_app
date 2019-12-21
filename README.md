@@ -1,6 +1,8 @@
-# Coffee Collection Rails with JS App
+# Coffee Collection 
 
-Welcome to Coffee Collection Rails with Js App! An app that will allow a user to keep a record of their favorites coffees. Other users will be able see the coffees details and be able to review specific coffee.
+Coffee Collection is a simple app for coffee lovers. Enjoy in exploring coffees from all around the world and give it a review. User can create own personal coffee collection as well.
+
+This project is built on Ruby on Rails with JavaScript
 
 
 # Installation
