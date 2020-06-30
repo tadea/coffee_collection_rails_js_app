@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.1'
+ruby '2.6.5'
 
 gem 'jquery-rails'
 gem 'active_model_serializers'
@@ -17,7 +17,6 @@ gem 'jbuilder', '~> 2.5'
  gem 'bcrypt', '~> 3.1.7'
  gem 'pry'
 gem 'bootsnap', '>= 1.1.0', require: false
-gem 'jquery-rails'
 gem 'thin'
 gem 'omniauth'
 gem 'omniauth-facebook'
