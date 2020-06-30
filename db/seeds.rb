@@ -1,3 +1,14 @@
+Grind.create!([
+  {name: "French Press"},
+  {name: "Pour Over"},
+  {name: "Espresso"}
+])
+
+User.create!([
+  {email: "test@test.com", password_digest: "$2a$12$2mWBzpCttvdRI7NfpPUvVOkhFyiiEUfCTwrDcVrOeBpsisGxXCHVS", uid: nil},
+  {email: "tadea@tadea.com", password_digest: "$2a$12$fXUTPDzsPOtQAlFZjVWmaO8UsVY8nW4ChWT3sJgLg.j4mXnPTL.Hm", uid: nil}
+])
+
 Coffee.create!([
   {
     name: "Flagstaff",
@@ -18,13 +29,4 @@ Coffee.create!([
   }
 ])
 
-Grind.create!([
-  {name: "French Press"},
-  {name: "Pour Over"},
-  {name: "Espresso"}
-])
 
-User.create!([
-  {email: "test@test.com", password_digest: "$2a$12$2mWBzpCttvdRI7NfpPUvVOkhFyiiEUfCTwrDcVrOeBpsisGxXCHVS", uid: nil},
-  {email: "tadea@tadea.com", password_digest: "$2a$12$fXUTPDzsPOtQAlFZjVWmaO8UsVY8nW4ChWT3sJgLg.j4mXnPTL.Hm", uid: nil}
-])
